@@ -32,9 +32,15 @@ h3 {
 .carousel-item.active {
   display: flex;
 }
+.carousel-control-prev,
+.carousel-control-next {
+  color: #000 !important;
+}
 
 .carousel-caption {
   text-shadow: -2px 2px 12px rgba(0, 0, 0, 1);
+  color: #fff;
+  font-weight: bold;
 }
 
 .carousel img {
