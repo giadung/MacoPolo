@@ -29,7 +29,7 @@ const ProductEditScreen = ({ match, history }) => {
   const {
     loading: loadingUpdate,
     error: errorUpdate,
-    success: successUpdate
+    success: successUpdate,
   } = productUpdate
 
   useEffect(() => {
@@ -59,13 +59,16 @@ const ProductEditScreen = ({ match, history }) => {
     try {
       const config = {
         headers: {
-          'Content-Type': 'multipart/form-data'
-        }
+          'Content-Type': 'multipart/form-data',
+        },
       }
       const { data } = await axios.post('/api/upload', formData, config)
+      console.log(data)
       setImage(data)
+      console.log(image)
       setUploading(false)
     } catch (error) {
+      console.log(error)
       setUploading(false)
     }
   }
@@ -80,7 +83,7 @@ const ProductEditScreen = ({ match, history }) => {
         category,
         quantity,
         image,
-        description
+        description,
       })
     )
   }
@@ -135,6 +138,7 @@ const ProductEditScreen = ({ match, history }) => {
                 onChange={(e) => setQuantity(e.target.value)}
               ></Form.Control>
             </Form.Group>
+
             <Form.Group controlId='image'>
               <Form.Label>Image</Form.Label>
               <Form.Control
